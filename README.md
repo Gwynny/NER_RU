@@ -16,3 +16,7 @@ optional arguments:
 ```
 
 run decode.py for decoding your initial doc
+
+## P.S.
+
+in src/extractor you can find info about why natasha was chosen
