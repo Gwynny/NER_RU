@@ -7,6 +7,7 @@ mod_text = []
 with open('output/encoded.txt', 'r') as reader:
     lines = reader.readlines()
     for line in lines:
+        print(line, end='')
         decoded_line = []
         for word in line.split():
             try:

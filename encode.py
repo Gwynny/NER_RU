@@ -15,6 +15,7 @@ ner_proccessor = Extractor(d)
 with open(args.text_path, 'r', encoding='utf-8') as reader, open('output/encoded.txt', 'w') as writer:
     lines = reader.readlines()
     for line in lines:
+        print(line, end='')
         line = ner_proccessor.replace_inn(line)
         line = ner_proccessor.replace_ner(line, 'addr')
         line = ner_proccessor.replace_ner(line, 'fio')
