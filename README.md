@@ -1,11 +1,13 @@
 # NER_RU
 
-NER model based on Natasha for Names and Addresses
+NER-Модель для извлечения адресов, ФИО и ИНН (Зад 1 и 2)
+Была выбрана библиотека Natasha. Выбор был между Natasha, DeepPavlov и Spacy
+Эта статья помогла в выборе https://natasha.github.io/ner/
+TLDR: Наташа компактнее DP и быстрее, качество чуть-чуть похуже
 
 ## Example
 
-run encode.py to see how model works and encode your txt file
-
+Посмотреть, как работает модель, необходимо запустить encode.py на своих данных или на тестовых. P.S. encode принтит результат модели и сохраняет его в output/encoded.txt
 ```
 usage: encode.py [-h] [--text-path <str>]
 
@@ -15,8 +17,4 @@ optional arguments:
                         path to your test txt file
 ```
 
-run decode.py for decoding your initial doc
-
-## P.S.
-
-in src/extractor you can find info about why natasha was chosen
+Расшифровка с помощью decode.py сохранненого в output/encoded.txt txt файл 
