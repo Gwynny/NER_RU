@@ -1,20 +1,16 @@
 # NER_RU
 
-NER-Модель для извлечения адресов, ФИО и ИНН (Зад 1 и 2)
-Была выбрана библиотека Natasha. Выбор был между Natasha, DeepPavlov и Spacy
-Эта статья помогла в выборе https://natasha.github.io/ner/
-TLDR: Наташа компактнее DP и быстрее, качество чуть-чуть похуже
+Что нового?
+- Переделал на Async API. АПИ Работает, но докер у меня на машине не робит, а разбираться в выходные не хочется (Hyper-V не робит)
+- Словарь с зашифрованными данными хранится на серве. После каждого запроса на зашифровку обновляется (наверно не супер - приходится открывать файл и обновлять его). 
+- Изменена структура экстактора NER, теперь pipeline с процессингом и заменой ner лежит внутри, а не снаружи (раньше был в encode.py и decode.py).
+- Теперь некоррентные ИНН тоже шифруются и дешифруются. FYI данный код работает только для физ лиц (12 чисел ИНН).
 
-## Example
+## Test
+Encoding
 
-Посмотреть, как работает модель, необходимо запустить encode.py на своих данных или на тестовых. P.S. encode принтит результат модели и сохраняет его в output/encoded.txt
-```
-usage: encode.py [-h] [--text-path <str>]
+![Работа АПИ. Encoding](https://drive.google.com/file/d/1Lc2jmStfle3w3a7wvnnXIy-xS8Br5-dZ/view?usp=sharing)
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --text-path <str>, -p <str>
-                        path to your test txt file
-```
+Decoding
 
-Расшифровка с помощью decode.py сохранненого в output/encoded.txt txt файл 
+![Работа АПИ. Decoding](https://drive.google.com/file/d/1lPxryGMrMhhqPt0FHYJCTeB54nXqoQ7v/view?usp=sharing)
