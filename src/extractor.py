@@ -1,4 +1,5 @@
 import hashlib
+import json
 import re
 from natasha import NamesExtractor, AddrExtractor, MorphVocab
 from src.utils import check_inn
@@ -13,7 +14,7 @@ class Extractor:
     """
 
     def __init__(self, dict_with_hashes: dict):
-        """
+        """ 
         Initializing the model
         :param dict_with_hashes: dict to store encoded information
         """
@@ -22,7 +23,7 @@ class Extractor:
         self.addr_extractor = AddrExtractor(vocab)
         self.name_extractor = NamesExtractor(vocab)
 
-    def replace_ner(self, line, ner_type):
+    def _replace_ner(self, line, ner_type):
         """
             Replacing Names or Addresses
         """
@@ -46,7 +47,7 @@ class Extractor:
 
         return line
 
-    def replace_inn(self, line):
+    def _replace_inn(self, line):
         """
             Replacing INN
         """
@@ -60,5 +61,13 @@ class Extractor:
                 self.dict_with_hashes[hashed_inn] = inn
                 line = line.replace(inn, hashed_inn)
             else:
-                line = line.replace(inn, 'НЕКОРРЕКТНЫЙ_ИНН')
+                hashed_inn = 'НЕКОРРЕКТНЫЙ_ИНН' + hashlib.md5(inn.encode()).hexdigest()[:6]
+                self.dict_with_hashes[hashed_inn] = inn
+                line = line.replace(inn, hashed_inn)
+        return line
+
+    def ner_inference(self, line):
+        line = self._replace_ner(line, 'addr')
+        line = self._replace_ner(line, 'fio')
+        line = self._replace_inn(line)
         return line
