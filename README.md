@@ -9,8 +9,8 @@
 ## Test
 Encoding
 
-![Работа АПИ. Encoding](https://drive.google.com/file/d/1Lc2jmStfle3w3a7wvnnXIy-xS8Br5-dZ/view?usp=sharing)
+![Работа АПИ. Encoding](async_ner/pics/encode.PNG)
 
 Decoding
 
-![Работа АПИ. Decoding](https://drive.google.com/file/d/1lPxryGMrMhhqPt0FHYJCTeB54nXqoQ7v/view?usp=sharing)
+![Работа АПИ. Decoding](async_ner/pics/decode.PNG)
