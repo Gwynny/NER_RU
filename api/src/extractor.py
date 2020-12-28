@@ -2,7 +2,7 @@ import hashlib
 import json
 import re
 from natasha import NamesExtractor, AddrExtractor, MorphVocab
-from app.api.src.utils import check_inn
+from api.src.utils import check_inn
 
 
 class Extractor:

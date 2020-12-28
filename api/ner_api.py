@@ -1,8 +1,8 @@
 import json
 from fastapi import APIRouter
 
-from app.api.model import Input, Output
-from app.api.src.extractor import Extractor
+from api.model import Input, Output
+from api.src.extractor import Extractor
 
 ner = APIRouter()
 ner_proccessor = Extractor()

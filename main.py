@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from app.api import ner_api
+from api import ner_api
 
 
 app = FastAPI()
