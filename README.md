@@ -14,3 +14,8 @@ Encoding
 Decoding
 
 ![Работа АПИ. Decoding](docs/decode.PNG)
+
+## TODO
+
+-Сделать тесты
+-Сделать Loadtest
